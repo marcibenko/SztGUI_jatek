@@ -18,8 +18,10 @@
 - rogue: kevesebb hp, gyors
 
 ## mechanikak
-- bolt
+- bolt/upgrade-ek
 - wave-ek (x enemy kill utan?)
 - fortnite tipusu zarodo kor fal
+- wave utan resetel a fortnite fal
+- minden wave utan egyre gyorsabban zarodik a fal
 
 
