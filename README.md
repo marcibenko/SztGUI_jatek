@@ -14,7 +14,8 @@
 ## karakterek
 - alap
 - engineer?
-- tank
+- tank: tobb hp, lasabb
+- rogue: kevesebb hp, gyors
 
 ## mechanikak
 - bolt
