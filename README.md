@@ -7,3 +7,15 @@
 - fejlesztesek: erosebb fegyverek, tobb hp,armor stb
 - mini boss: halalakor egy falat tesz le
 - fortnite tipusu zarodo kor fal
+
+## enemyk
+- mini boss
+
+## karakterek
+- alap
+- engineer?
+- tank
+
+## mechanikak
+- bolt
+- wave-ek (x enemy kill utan?)
