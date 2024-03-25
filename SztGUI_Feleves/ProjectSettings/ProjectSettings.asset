@@ -704,11 +704,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: d86cd831-7a71-4c50-bae5-eb10f92bf56d
+  cloudProjectId: 2986b3b1-efc7-4df7-8976-32a244fabe5b
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: SztGUI_Feleves
-  organizationId: benkomarton
+  projectName: SztGUI_Feleves 2024-03-25_12-21-46
+  organizationId: martonmagyarkuti1
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
