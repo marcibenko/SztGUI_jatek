@@ -5,11 +5,11 @@
 - 1 szint van, ahol wave-ek jonnek
 - cel: tulelni minnel tovabb es fejleszteni magadat
 - fejlesztesek: erosebb fegyverek, tobb hp,armor stb
-- mini boss: halalakor egy falat tesz le
-- fortnite tipusu zarodo kor fal
 
 ## enemyk
-- mini boss
+- mini boss: halalakor egy falat tesz le
+- zombie: csak megy a player felé, melee
+- sniper: playertol x tavolsagra megall, long range
 
 ## karakterek
 - alap
@@ -19,3 +19,6 @@
 ## mechanikak
 - bolt
 - wave-ek (x enemy kill utan?)
+- fortnite tipusu zarodo kor fal
+
+
