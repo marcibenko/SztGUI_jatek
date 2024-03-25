@@ -1,0 +1,4 @@
+repository "SztGUI_Feleves@benkomarton@cloud"
+  path "/"
+    br "/main"
+    co "/main"
