@@ -24,6 +24,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         PlayerInput();
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     private void FixedUpdate()
@@ -39,5 +44,15 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+    }
+
+    
+
+    IEnumerator Dash()
+    {
+        moveSpeed = 10f;
+        yield return new WaitForSeconds(0.2f);
+        moveSpeed = 1f;
+       // yield return new WaitForSeconds(0.2f);
     }
 }
