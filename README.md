@@ -30,4 +30,5 @@
 - wave utan resetel a fortnite fal
 - minden wave utan egyre gyorsabban zarodik a fal
 
-
+## Sources
+[Piskel: sprite editor](https://www.piskelapp.com/)
