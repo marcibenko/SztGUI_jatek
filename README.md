@@ -17,6 +17,12 @@
 - tank: tobb hp, lasabb
 - rogue: kevesebb hp, gyors
 
+## karakterek2.0
+- narancs macska -> tank: tobb hp, lassabb, melee, gyengebb
+- tricolor macska ->  varazslo: keves hp, ranged, sok dmg, kozepes sebesseg
+- feher macska -> ijasz: kozepes hp, ranged, kozepes sebesseg
+- fekete macska -> rogue/assassin: kozepes hp, gyors, melee, eros
+
 ## mechanikak
 - bolt/upgrade-ek
 - wave-ek (x enemy kill utan?)
