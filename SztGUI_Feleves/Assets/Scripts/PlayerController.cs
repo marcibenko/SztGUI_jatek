@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer mySpriteRenderer;
 
 
-
     private void Awake()
     {
         playerControls = new PlayerControls();
@@ -37,6 +36,16 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash());
         }
+        if(Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            //ha a heavyt itt hivom meg akkor se jo
+            LightAttack();
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            HeavyAttack();
+        }
+        
     }
 
     private void FixedUpdate()
@@ -56,6 +65,20 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb.MovePosition(rb.position + movement * (moveSpeed * Time.fixedDeltaTime));
+    }
+
+    private void LightAttack()
+    {
+        myAnimator.SetTrigger("LightAttack");
+        //myAnimator.ResetTrigger("LightAttack");
+    }
+
+    private void HeavyAttack()
+    {
+        //valami a heavy atacckal rossz
+        myAnimator.SetTrigger("HeavyAttack");
+        //myAnimator.ResetTrigger("HeavyAttack");
+        
     }
 
     private void AdjustPlayerFacingDirection()
