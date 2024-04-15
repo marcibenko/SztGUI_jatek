@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
 
+    //weapon collision
+    [SerializeField] private Transform WeaponCollider;
+
 
     private void Awake()
     {
@@ -89,10 +92,12 @@ public class PlayerController : MonoBehaviour
         if (mousePos.x < playerScreenPoint.x)
         {
             mySpriteRenderer.flipX = true;
+            WeaponCollider.transform.rotation = Quaternion.Euler(0, -180, 0);
         }
         else
         {
             mySpriteRenderer.flipX = false;
+            WeaponCollider.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
 
