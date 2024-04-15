@@ -30,8 +30,9 @@
 - wave utan resetel a fortnite fal
 - minden wave utan egyre gyorsabban zarodik a fal
 
-## TODO:
+## TODO/bugok:
 - dmg-et kiiratni sebzodesnel
+- hitbox nem jo
 
 ## Sources
 [Piskel: sprite editor](https://www.piskelapp.com/)
