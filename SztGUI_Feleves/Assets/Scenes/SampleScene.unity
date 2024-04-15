@@ -651,14 +651,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 385313807545452897, guid: 023dfeb74e1a3b040849f358d213d894, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2496468149310196805, guid: 023dfeb74e1a3b040849f358d213d894, type: 3}
       propertyPath: m_Name
       value: Blue Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 3360469928774104851, guid: 023dfeb74e1a3b040849f358d213d894, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2496468149310196805, guid: 023dfeb74e1a3b040849f358d213d894, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1039624866}
   m_SourcePrefab: {fileID: 100100000, guid: 023dfeb74e1a3b040849f358d213d894, type: 3}
 --- !u!1 &273621683
 GameObject:
@@ -1221,6 +1232,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1039624858 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2496468149310196805, guid: 023dfeb74e1a3b040849f358d213d894, type: 3}
+  m_PrefabInstance: {fileID: 268739664}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1039624866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039624858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2723267f284856e47bbadb53957863c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 273621683}
+  speed: 1
 --- !u!1 &1206780079
 GameObject:
   m_ObjectHideFlags: 0
