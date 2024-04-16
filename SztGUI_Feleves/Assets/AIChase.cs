@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class AIChase : MonoBehaviour
 {
-    public GameObject player;
+    //public GameObject player;
+    public Transform player;
     public float speed;
 
     private float distance;
@@ -17,6 +18,10 @@ public class AIChase : MonoBehaviour
 
     void Update()
     {
+        //get the target
+        if(!player)GetTarget();
+
+
         //the commented sections are making it possible for the enemy to always face the player.
         //it is outcommented, since the current skin of the enemy has shadows init, making the turning weird.( in some angles, the shadows are on top of the enemy)
 
@@ -27,5 +32,9 @@ public class AIChase : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         //transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+    }
+    private void GetTarget()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }
