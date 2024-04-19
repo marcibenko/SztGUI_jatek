@@ -808,7 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99ac41b9dee15414c9a4a6d484611daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
   WeaponCollider: {fileID: 398557188}
 --- !u!95 &273621688
 Animator:

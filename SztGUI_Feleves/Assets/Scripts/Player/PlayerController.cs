@@ -107,9 +107,10 @@ public class PlayerController : Singleton<PlayerController>
 
     IEnumerator Dash()
     {
+        float prevmoveSpeed = moveSpeed;
         moveSpeed = 10f;
         yield return new WaitForSeconds(0.2f);
-        moveSpeed = 1f;
+        moveSpeed = prevmoveSpeed;
        // yield return new WaitForSeconds(0.2f);
     }
 }
