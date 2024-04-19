@@ -8,6 +8,8 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private GameObject[] enemyPrefabs;
 
+    [SerializeField] private int whenComesRed;
+
     [SerializeField] private bool canSpawn = true;
     private void Start()
     {
@@ -16,13 +18,25 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator Spawner()
     {
         WaitForSeconds wait = new WaitForSeconds(spawnRate);
+        int count = 1;
         while (true) {
             yield return wait;
 
-            int rand = Random.Range(0, enemyPrefabs.Length);
-            GameObject enemyToSpawn= enemyPrefabs[rand];
+            //int rand = Random.Range(0, enemyPrefabs.Length);
+            //GameObject enemyToSpawn= enemyPrefabs[rand];
 
-            Instantiate(enemyToSpawn, transform.position, Quaternion.identity); //do we need this?
+            GameObject enemyToSpawn;
+            if (count==whenComesRed)
+            {
+                enemyToSpawn = enemyPrefabs[1];
+                count = 1;
+            }
+            else
+            {
+                enemyToSpawn= enemyPrefabs[0];
+                count++;
+            }
+            Instantiate(enemyToSpawn, transform.position, Quaternion.identity); 
         }
     }
 
