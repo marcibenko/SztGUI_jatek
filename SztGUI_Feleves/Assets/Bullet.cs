@@ -21,4 +21,16 @@ public class Bullet : MonoBehaviour
     {
         rb.velocity = transform.up * speed;
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!collision.gameObject.CompareTag("RedEnemy")&& !collision.gameObject.CompareTag("BlueEnemy"))
+        {
+            CapsuleCollider2D capsuleCollider = collision.attachedRigidbody ? collision.attachedRigidbody.GetComponent<CapsuleCollider2D>() : collision.GetComponent<CapsuleCollider2D>();
+            if (capsuleCollider != null)
+            {
+                rb.velocity = Vector2.zero;
+                Destroy(gameObject);
+            }
+        }
+    }
 }

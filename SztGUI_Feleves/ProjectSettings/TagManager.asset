@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RedEnemy
   - firepoint
+  - BlueEnemy
   layers:
   - Default
   - TransparentFX
