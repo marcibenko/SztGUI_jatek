@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,14 @@ public class AIChase_WithTurning : MonoBehaviour
 
     private float distance;
 
+
+    //Gun
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firingPoint;
+    private bool canShoot = true;
+    private float lastShotTime = 0f;
+    private readonly float shootInterval = 1f; // how long should we wait between shots
+
     void Start()
     {
         
@@ -18,12 +27,7 @@ public class AIChase_WithTurning : MonoBehaviour
 
     void Update()
     {
-        //get the target
         if(!player)GetTarget();
-
-
-        //the commented sections are making it possible for the enemy to always face the player.
-        //it is outcommented, since the current skin of the enemy has shadows init, making the turning weird.( in some angles, the shadows are on top of the enemy)
 
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
@@ -32,9 +36,38 @@ public class AIChase_WithTurning : MonoBehaviour
 
         transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+
+        if ( canShoot && Time.time > lastShotTime + shootInterval)
+        {
+            Shoot();
+            lastShotTime = Time.time;
+        }
     }
+
+    private void Shoot()
+    {
+        Instantiate(bulletPrefab, firingPoint.position, firingPoint.rotation);
+        canShoot = false;
+        Invoke(nameof(EnableShoot), shootInterval);
+    }
+
     private void GetTarget()
     {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        if (GameObject.FindGameObjectWithTag("Player"))
+        {
+            player = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+    }
+    void EnableShoot()
+    {
+        canShoot = true;
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(other.gameObject);
+            player = null;
+        }
     }
 }
