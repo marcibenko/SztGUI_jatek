@@ -9,6 +9,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs;
 
     [SerializeField] private int whenComesRed;
+    [SerializeField] private int whenComesPurple;
 
     [SerializeField] private bool canSpawn = true;
     private void Start()
@@ -22,19 +23,30 @@ public class EnemySpawner : MonoBehaviour
         while (true) {
             yield return wait;
 
-            //int rand = Random.Range(0, enemyPrefabs.Length);
-            //GameObject enemyToSpawn= enemyPrefabs[rand];
-
             GameObject enemyToSpawn;
-            if (count==whenComesRed)
+            count++;
+            //if (count==whenComesRed)
+            //{
+            //    enemyToSpawn = enemyPrefabs[1];
+            //    count = 1;
+            //}
+            //else
+            //{
+            //    enemyToSpawn= enemyPrefabs[0];
+            //    count++;
+            //}
+            if (count == whenComesRed)
             {
                 enemyToSpawn = enemyPrefabs[1];
+            }
+            else if (count == whenComesPurple)
+            { 
+                enemyToSpawn = enemyPrefabs[2];
                 count = 1;
             }
             else
             {
-                enemyToSpawn= enemyPrefabs[0];
-                count++;
+                enemyToSpawn = enemyPrefabs[0];
             }
             Instantiate(enemyToSpawn, transform.position, Quaternion.identity); 
         }
