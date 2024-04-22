@@ -6305,7 +6305,9 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 2496468149310196805, guid: 023dfeb74e1a3b040849f358d213d894, type: 3}
   - {fileID: 2496468149310196805, guid: b9516c2e1abb4174aa6e280f93b7658e, type: 3}
+  - {fileID: 2496468149310196805, guid: ec363a785d0637d4cb1eae2fca7f2c57, type: 3}
   whenComesRed: 3
+  whenComesPurple: 4
   canSpawn: 1
 --- !u!1 &1843428819
 GameObject:
