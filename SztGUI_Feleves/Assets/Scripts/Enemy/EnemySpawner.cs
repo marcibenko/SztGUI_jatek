@@ -19,7 +19,7 @@ public class EnemySpawner : MonoBehaviour
     private IEnumerator Spawner()
     {
         WaitForSeconds wait = new WaitForSeconds(spawnRate);
-        int count = 1;
+        int count = 0;
         while (true) {
             yield return wait;
 
@@ -42,7 +42,7 @@ public class EnemySpawner : MonoBehaviour
             else if (count == whenComesPurple)
             { 
                 enemyToSpawn = enemyPrefabs[2];
-                count = 1;
+                count = 0;
             }
             else
             {
