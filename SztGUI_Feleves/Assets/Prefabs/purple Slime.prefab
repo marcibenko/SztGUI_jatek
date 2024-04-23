@@ -199,4 +199,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 2
-  onDestroyPrefab: {fileID: 699039454603704208, guid: f1c92fcd256eefe40b7c109e885b4fba, type: 3}
+  onDestroyPrefab: {fileID: 699039454603704208, guid: c4b0e3b262361a743a7727c5da745ce3, type: 3}
