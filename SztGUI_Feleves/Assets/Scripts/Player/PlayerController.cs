@@ -18,6 +18,7 @@ public class PlayerController : Singleton<PlayerController>
 
     //weapon collision
     [SerializeField] private Transform WeaponCollider;
+    private DamageSource WeaponColliderController;
 
 
     protected override void Awake()
@@ -46,7 +47,6 @@ public class PlayerController : Singleton<PlayerController>
         }
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {
-            //ha a heavyt itt hivom meg akkor se jo
             LightAttack();
         }
         if (Input.GetKeyDown(KeyCode.Mouse1))
@@ -79,15 +79,16 @@ public class PlayerController : Singleton<PlayerController>
     private void LightAttack()
     {
         myAnimator.SetTrigger("LightAttack");
+        WeaponColliderController.SetAttackType(AttackType.Light);
         //myAnimator.ResetTrigger("LightAttack");
     }
 
     private void HeavyAttack()
     {
-        //valami a heavy atacckal rossz
         myAnimator.SetTrigger("HeavyAttack");
+        WeaponColliderController.SetAttackType(AttackType.Heavy);
         //myAnimator.ResetTrigger("HeavyAttack");
-        
+
     }
 
     private void AdjustPlayerFacingDirection()
