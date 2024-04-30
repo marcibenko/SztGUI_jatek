@@ -21,11 +21,14 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] private Transform WeaponCollider;
     private DamageSource WeaponColliderController;
 
+    //for other scripts
+    public static PlayerController instance;
+
 
     protected override void Awake()
     {
         base.Awake();
-        
+        instance = this;
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();

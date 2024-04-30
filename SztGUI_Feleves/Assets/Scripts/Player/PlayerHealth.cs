@@ -7,7 +7,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
-    [SerializeField] private float damageRecoveryTime = 1f;
+    [SerializeField] private float damageRecoveryTime = 0.3f;
 
     private Slider healthSlider;
     private int currentHealth;
@@ -16,8 +16,6 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Flash flash;
     const string HEALTH_SLIDER_TEXT = "Heart Slider";
 
-    //for animations
-    private PlayerController PC;
 
     protected override void Awake()
     {
@@ -61,10 +59,10 @@ public class PlayerHealth : Singleton<PlayerHealth>
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
         currentHealth -= damageAmount;
-        PC.TakeDamage();
         StartCoroutine(DamageRecoveryRoutine());
         UpdateHealthSlider();
         CheckIfPlayerDeath();
+        PlayerController.instance.TakeDamage();
     }
 
     private void CheckIfPlayerDeath()
@@ -73,7 +71,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         {
             currentHealth = 0;
             Debug.Log("Player Death");
-            PC.Death();//keyboard input leallitasa es jatek stop -> game over
+            PlayerController.instance.Death();//keyboard input leallitasa es jatek stop -> game over
         }
     }
 
