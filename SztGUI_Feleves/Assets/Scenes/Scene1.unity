@@ -1102,7 +1102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d01a76680fe5e944cbf1feeb1539179c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 1
+  LightAttackDamageAmount: 1
+  HeavyAttackDamageAmount: 3
 --- !u!50 &398557191
 Rigidbody2D:
   serializedVersion: 4
@@ -2115,7 +2116,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &759005088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9769,7 +9770,7 @@ GameObject:
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1808552564
 Transform:
   m_ObjectHideFlags: 0

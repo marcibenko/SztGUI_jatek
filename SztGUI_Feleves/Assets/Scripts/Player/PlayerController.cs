@@ -16,6 +16,7 @@ public class PlayerController : Singleton<PlayerController>
     private Animator myAnimator;
     private SpriteRenderer mySpriteRenderer;
 
+
     //weapon collision
     [SerializeField] private Transform WeaponCollider;
     private DamageSource WeaponColliderController;
@@ -88,7 +89,6 @@ public class PlayerController : Singleton<PlayerController>
         myAnimator.SetTrigger("HeavyAttack");
         WeaponColliderController.SetAttackType(AttackType.Heavy);
         //myAnimator.ResetTrigger("HeavyAttack");
-
     }
 
     private void AdjustPlayerFacingDirection()
@@ -108,14 +108,26 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
+    public void TakeDamage()
+    {
+        myAnimator.SetTrigger("TakeDamage");
+    }
 
+    public void Death()
+    {
+        myAnimator.SetTrigger("Death");
+    }
 
     IEnumerator Dash()
     {
         float prevmoveSpeed = moveSpeed;
         moveSpeed = 10f;
+        //play anim
+        //myAnimator.runtimeAnimatorController = OverrideController;
+        myAnimator.SetTrigger("Roll");
+        //Invoke("SwitchToOriginalController", OverrideController["Roll"].length);
         yield return new WaitForSeconds(0.2f);
         moveSpeed = prevmoveSpeed;
-       // yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.4f);
     }
 }

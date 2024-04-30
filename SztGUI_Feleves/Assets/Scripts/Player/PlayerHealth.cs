@@ -16,6 +16,9 @@ public class PlayerHealth : Singleton<PlayerHealth>
     private Flash flash;
     const string HEALTH_SLIDER_TEXT = "Heart Slider";
 
+    //for animations
+    private PlayerController PC;
+
     protected override void Awake()
     {
         base.Awake();
@@ -58,6 +61,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         StartCoroutine(flash.FlashRoutine());
         canTakeDamage = false;
         currentHealth -= damageAmount;
+        PC.TakeDamage();
         StartCoroutine(DamageRecoveryRoutine());
         UpdateHealthSlider();
         CheckIfPlayerDeath();
@@ -69,6 +73,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         {
             currentHealth = 0;
             Debug.Log("Player Death");
+            PC.Death();//keyboard input leallitasa es jatek stop -> game over
         }
     }
 
