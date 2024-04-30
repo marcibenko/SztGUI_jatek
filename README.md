@@ -32,7 +32,8 @@
 
 ## TODO/bugok:
 - dmg-et kiiratni sebzodesnel
-- hitbox nem jo
+- sebzodesnel buggos az effekt (feher negyzet)
+- halalozas
 
 ## Sources
 [Piskel: sprite editor](https://www.piskelapp.com/)
