@@ -42,12 +42,13 @@ public class PlayerController : Singleton<PlayerController>
 
     private void OnEnable()
     {
-        PlayerHealth.OnPlayerDeath += DisablePlayerMovement;
         playerControls.Enable();
+        PlayerHealth.OnPlayerDeath += DisablePlayerMovement;
     }
     private void OnDisable()
     {
         PlayerHealth.OnPlayerDeath -= DisablePlayerMovement;
+        EnablePlayerMovement();
     }
     private void Update()
     {
@@ -146,7 +147,7 @@ public class PlayerController : Singleton<PlayerController>
         myAnimator.enabled = false;
         rb.bodyType = RigidbodyType2D.Static;
     }
-    void EnablePlayerMovement()
+    private void EnablePlayerMovement()
     {
         myAnimator.enabled = true;
         rb.bodyType=RigidbodyType2D.Dynamic;
