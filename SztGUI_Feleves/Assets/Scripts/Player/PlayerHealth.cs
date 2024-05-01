@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
+    public bool isDead { get; private set; }
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 0.3f;
+    public GameObject DeathScreen;
 
     private Slider healthSlider;
     private int currentHealth;
@@ -27,6 +30,8 @@ public class PlayerHealth : Singleton<PlayerHealth>
 
     private void Start()
     {
+        DeathScreen.SetActive(false);
+        isDead = false;
         currentHealth = maxHealth;
 
         UpdateHealthSlider();
@@ -69,7 +74,10 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         if (currentHealth <= 0)
         {
+            isDead = true;
+            //Destroy(ActiveWeapon.Instance.gameObject);
             currentHealth = 0;
+            DeathScreen.SetActive(true);
             Debug.Log("Player Death");
             PlayerController.instance.Death();//keyboard input leallitasa es jatek stop -> game over
         }
@@ -91,4 +99,23 @@ public class PlayerHealth : Singleton<PlayerHealth>
         healthSlider.maxValue = maxHealth;
         healthSlider.value = currentHealth;
     }
+    void Update()
+    {
+        if (isDead)//Death.activeInHierarchy)
+        {
+            StartCoroutine("DeathScreenLoader");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public IEnumerator DeathScreenLoader()
+    {
+        yield return new WaitForSeconds(2);
+        DeathScreen.SetActive(true);
+    }
 }
+
