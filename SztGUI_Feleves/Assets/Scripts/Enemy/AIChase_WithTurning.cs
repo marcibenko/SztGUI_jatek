@@ -17,7 +17,7 @@ public class AIChase_WithTurning : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     private bool canShoot = true;
     private float lastShotTime = 0f;
-    private readonly float shootInterval = 1f; // how long should we wait between shots
+    private readonly float shootInterval = 3f; // how long should we wait between shots
 
     void Start()
     {

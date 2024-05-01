@@ -48,7 +48,6 @@ public class PlayerController : Singleton<PlayerController>
     private void OnDisable()
     {
         PlayerHealth.OnPlayerDeath -= DisablePlayerMovement;
-        EnablePlayerMovement();
     }
     private void Update()
     {
