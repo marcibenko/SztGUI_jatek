@@ -24,7 +24,11 @@ public class PlayerController : Singleton<PlayerController>
     //for other scripts
     public static PlayerController instance;
 
-
+    
+    private void Start()
+    {
+        EnablePlayerMovement();
+    }
     protected override void Awake()
     {
         base.Awake();
@@ -38,9 +42,13 @@ public class PlayerController : Singleton<PlayerController>
 
     private void OnEnable()
     {
+        PlayerHealth.OnPlayerDeath += DisablePlayerMovement;
         playerControls.Enable();
     }
-
+    private void OnDisable()
+    {
+        PlayerHealth.OnPlayerDeath -= DisablePlayerMovement;
+    }
     private void Update()
     {
         PlayerInput();
@@ -132,5 +140,15 @@ public class PlayerController : Singleton<PlayerController>
         yield return new WaitForSeconds(0.2f);
         moveSpeed = prevmoveSpeed;
         yield return new WaitForSeconds(0.4f);
+    }
+    private void DisablePlayerMovement()
+    {
+        myAnimator.enabled = false;
+        rb.bodyType = RigidbodyType2D.Static;
+    }
+    void EnablePlayerMovement()
+    {
+        myAnimator.enabled = true;
+        rb.bodyType=RigidbodyType2D.Dynamic;
     }
 }
