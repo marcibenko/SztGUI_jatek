@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class PlayerHealth : Singleton<PlayerHealth>
 {
     [SerializeField] private int maxHealth = 3;
     [SerializeField] private float knockBackThrustAmount = 10f;
     [SerializeField] private float damageRecoveryTime = 0.3f;
+
+    public static event Action OnPlayerDeath;
 
     private Slider healthSlider;
     private int currentHealth;
@@ -71,6 +74,7 @@ public class PlayerHealth : Singleton<PlayerHealth>
         {
             currentHealth = 0;
             Debug.Log("Player Death");
+            OnPlayerDeath?.Invoke();
             PlayerController.instance.Death();//keyboard input leallitasa es jatek stop -> game over
         }
     }
