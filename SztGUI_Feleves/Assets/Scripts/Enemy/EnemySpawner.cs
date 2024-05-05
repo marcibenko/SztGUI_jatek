@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnRate=1f;
+    [SerializeField] private float spawnRate;
 
     [SerializeField] private GameObject[] enemyPrefabs;
 
@@ -14,27 +14,27 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private bool canSpawn = true;
     private void Start()
     {
+        StartCoroutine(AdjustSpawnRate());
         StartCoroutine(Spawner());
+    }
+    private IEnumerator AdjustSpawnRate()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            spawnRate -= 0.1f; 
+            spawnRate = Mathf.Max(spawnRate, 0.1f); 
+        }
     }
     private IEnumerator Spawner()
     {
-        WaitForSeconds wait = new WaitForSeconds(spawnRate);
+        //WaitForSeconds wait = new WaitForSeconds(spawnRate);
         int count = 0;
         while (true) {
-            yield return wait;
+            yield return new WaitForSeconds(spawnRate);
 
             GameObject enemyToSpawn;
             count++;
-            //if (count==whenComesRed)
-            //{
-            //    enemyToSpawn = enemyPrefabs[1];
-            //    count = 1;
-            //}
-            //else
-            //{
-            //    enemyToSpawn= enemyPrefabs[0];
-            //    count++;
-            //}
             if (count == whenComesRed)
             {
                 enemyToSpawn = enemyPrefabs[1];
@@ -51,6 +51,4 @@ public class EnemySpawner : MonoBehaviour
             Instantiate(enemyToSpawn, transform.position, Quaternion.identity); 
         }
     }
-
-
 }
