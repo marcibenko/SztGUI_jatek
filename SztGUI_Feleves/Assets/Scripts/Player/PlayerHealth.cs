@@ -39,7 +39,15 @@ public class PlayerHealth : Singleton<PlayerHealth>
     {
         EnemyScript enemy = other.gameObject.GetComponent<EnemyScript>();
 
-        if (enemy)
+        if (enemy || other.gameObject.CompareTag("Bullet"))
+        {
+            TakeDamage(1, other.transform);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Bullet bullet = other.gameObject.GetComponent<Bullet>();
+        if (bullet)
         {
             TakeDamage(1, other.transform);
         }

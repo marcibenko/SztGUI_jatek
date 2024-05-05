@@ -7,6 +7,7 @@ TagManager:
   - RedEnemy
   - firepoint
   - BlueEnemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
